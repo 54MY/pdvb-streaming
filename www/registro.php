@@ -69,6 +69,7 @@
             }
             $celular = addslashes ($_POST['celular1']);
             $celular2 = addslashes ($_POST['celular2']);
+            $existe_celular = mysqli_query($con,"SELECT id FROM pdvb.Acampante WHERE Celular = '" . $celular . "';");
             if ($celular!=$celular2){
                 $mensaje='Los campos celular deben cohincidir';
                 popUpWarning($mensaje);
@@ -76,9 +77,12 @@
                 $mensaje='Campo celular requerido';
                 popUpWarning($mensaje);
             } else if((strlen($celular) < 7) || (strlen($celular2) < 7)){
-                $mensaje='Numero de celular no permitido '.strlen($celular).' - '.strlen($celular2);
+                $mensaje='Numero de celular no permitido';
                 popUpWarning($mensaje);
-            } 
+            }  else if(mysqli_num_rows($existe_celular) > 0) {
+                $mensaje='El numero de celular ' . $celular . ' ya fue registrado';
+                popUpWarning($mensaje);
+            }
             $pais = addslashes ($_POST['pais']);
             if (empty($pais)){
                 $mensaje='Campo pais requerido';
@@ -100,8 +104,35 @@
                 case 'BOLIVIA':
                     $cod_pais = '+591';
                     break;
-                case 'Argentina':
-                    $cod_pais = '+511';
+                case 'ARGENTINA':
+                    $cod_pais = '+54';
+                    break;
+                case 'CHILE':
+                    $cod_pais = '+56';
+                    break;
+                case 'COLOMBIA':
+                    $cod_pais = '+57';
+                    break;
+                case 'PERU':
+                    $cod_pais = '+51';
+                    break;
+                case 'MEXICO':
+                    $cod_pais = '+52';
+                    break;
+                case 'PARAGUAY':
+                    $cod_pais = '+595';
+                    break;
+                case 'ECUADOR':
+                    $cod_pais = '+593';
+                    break;
+                case 'URUGUAY':
+                    $cod_pais = '+598';
+                    break;
+                case 'PANAMA':
+                    $cod_pais = '+507';
+                    break;
+                case 'VENEZUELA':
+                    $cod_pais = '+58';
                     break;
                 default:
                     $cod_pais = '000';
@@ -133,8 +164,12 @@
                 popUpWarning($mensaje);
             }
             $usuario = addslashes ($_POST['usuario']);
+            $existe_usuario = mysqli_query($con,"SELECT id FROM pdvb.Acampante WHERE Usuario = '" . $usuario . "';");
             if (empty($usuario)){
                 $mensaje='Campo usuario requerido';
+                popUpWarning($mensaje);
+            } else if(mysqli_num_rows($existe_usuario) > 0) {
+                $mensaje='El usuario ' . $usuario . ' ya fue registrado';
                 popUpWarning($mensaje);
             }
             $contrasena = addslashes ($_POST['contrasena']);
@@ -266,7 +301,15 @@
                                         <option value="" selected>Selecciona una pais</option>
                                         <option value="BOLIVIA">Bolivia</option>
                                         <option value="ARGENTINA">Argentina</option>
-                                        <option value="Otros..">Otros..</option>
+                                        <option value="CHILE">Chile</option>
+                                        <option value="COLOMBIA">Colombia</option>
+                                        <option value="PERU">Peru</option>
+                                        <option value="MEXICO">Mexico</option>
+                                        <option value="PARAGUAY">Paraguay</option>
+                                        <option value="ECUADOR">Ecuador</option>
+                                        <option value="URUGUAY">Uruguay</option>
+                                        <option value="PANAMA">Panama</option>
+                                        <option value="VENEZUELA">Venezuela</option>
                                     </select>
                                 </div>
                             </div>
@@ -391,7 +434,7 @@
                                     <div class="input-group-addon">
                                         <em class="fa fa-lock"></em>
                                     </div>
-                                    <input class="form-control" id="contrasena" require="true" type="text"
+                                    <input class="form-control" type="password" id="contrasena" require="true" type="text"
                                         name="contrasena" minlength="8"/>
                                 </div>
                             </div>

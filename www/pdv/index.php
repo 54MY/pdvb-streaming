@@ -151,7 +151,8 @@
                             <?php
                                 include("../config/db.php");
                                 include("../config/conexion.php");
-                                $query = "SELECT id, Nombres, Apellidos, Edad, Celular, Ciudad FROM Acampante";
+                                $query = "SELECT a.id, Nombres, Apellidos, Edad, Sexo, Celular, Ciudad, Pais, Usuario, Correo, t.Taller
+                                            FROM pdvb.Acampante a INNER JOIN pdvb.Talleres t ON Id_Taller = t.id";
                                 $result = mysqli_query($con,$query); 
                                 echo '<table class="table table-striped">';
                                 echo '<thead>
@@ -168,15 +169,26 @@
                                     </thead>';
                                 while($row = $result->fetch_assoc()){
                                     echo '<tr>';
-                                        echo '<td><a><span class="fa fa-search" data-toggle="modal" data-target="#detallesCuenta"></span></a></td>';
+                                        echo '<td><a><span class="detalles-cuenta fa fa-search"
+                                                data-nombre="' . $row['Nombres'] . '"
+                                                data-apellido="' . $row['Apellidos'] . '"
+                                                data-edad="' . $row['Edad'] . '"
+                                                data-sexo="' . $row['Sexo'] . '"
+                                                data-celular="' . $row['Celular'] . '"
+                                                data-ciudad="' . $row['Ciudad'] . '"
+                                                data-pais="' . $row['Pais'] . '"
+                                                data-usuario="' . $row['Usuario'] . '"
+                                                data-correo="' . $row['Correo'] . '"
+                                                data-taller="' . $row['Taller'] . '"
+                                                data-toggle="modal" data-target="#detallesCuenta"></span></a></td>';
                                         echo '<td>' . $row['id'] . '</td>';
                                         echo '<td>' . $row['Nombres'] . '</td>';
                                         echo '<td>' . $row['Apellidos'] . '</td>';
                                         echo '<td>' . $row['Edad'] . '</td>';
                                         echo '<td>' . $row['Celular'] . '</td>';
                                         echo '<td>' . $row['Ciudad'] . '</td>';
-                                        echo '<td>' . $row['Apellidos'] . '</td>';
-                                        echo '<td><button type="button" class="cambiar-contrasena btn btn-default btn-sm" data-id="' . $row['id'] . '" data-toggle="modal" data-target="#cambiarContrasena">Cambiar</button><td>';
+                                        echo '<td><button type="button" class="cambiar-contrasena btn btn-default btn-sm"
+                                                data-id="' . $row['id'] . '" data-toggle="modal" data-target="#cambiarContrasena">Cambiar</button><td>';
                                     echo '</tr>';
                                 }
                                 echo '</table>';
@@ -284,73 +296,91 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label class="col-md-2 control-label" for="Correo electronico">Nombres</label>
+                            <label class="col-md-2 control-label">Nombres</label>
                             <div class="col-md-10">
                                 <div class="input-group">
-                                    <i>Ejemplo ....</i>
+                                    <i><span name="nombre" id="nombre"></span></i>
                                 </div>
                             </div>
                         </div>
                         </br>
                         <div class="form-group">
-                            <label class="col-md-2 control-label" for="Correo electronico">Apellidos</label>
+                            <label class="col-md-2 control-label">Apellidos</label>
                             <div class="col-md-10">
                                 <div class="input-group">
-                                    <i>Ejemplo ....</i>
+                                    <i><span name="apellido" id="apellido"></span></i>
                                 </div>
                             </div>
                         </div>
                         </br>
                         <div class="form-group">
-                            <label class="col-md-2 control-label" for="Correo electronico">Edad</label>
+                            <label class="col-md-2 control-label">Edad</label>
                             <div class="col-md-10">
                                 <div class="input-group">
-                                    <i>Ejemplo ....</i>
+                                    <i><span name="edad" id="edad"></span></i>
                                 </div>
                             </div>
                         </div>
                         </br>
                         <div class="form-group">
-                            <label class="col-md-2 control-label" for="Correo electronico">Celular</label>
+                            <label class="col-md-2 control-label">Sexo</label>
                             <div class="col-md-10">
                                 <div class="input-group">
-                                    <i>Ejemplo ....</i>
+                                    <i><span name="sexo" id="sexo"></span></i>
                                 </div>
                             </div>
                         </div>
                         </br>
                         <div class="form-group">
-                            <label class="col-md-2 control-label" for="Correo electronico">Pais</label>
+                            <label class="col-md-2 control-label">Celular</label>
                             <div class="col-md-10">
                                 <div class="input-group">
-                                    <i>Ejemplo ....</i>
+                                    <i><span name="celular" id="celular"></span></i>
                                 </div>
                             </div>
                         </div>
                         </br>
                         <div class="form-group">
-                            <label class="col-md-2 control-label" for="Correo electronico">Ciudad</label>
+                            <label class="col-md-2 control-label">Pais</label>
                             <div class="col-md-10">
                                 <div class="input-group">
-                                    <i>Ejemplo ....</i>
+                                    <i><span name="pais" id="pais"></span></i>
                                 </div>
                             </div>
                         </div>
                         </br>
                         <div class="form-group">
-                            <label class="col-md-2 control-label" for="Correo electronico">Usuario</label>
+                            <label class="col-md-2 control-label">Ciudad</label>
                             <div class="col-md-10">
                                 <div class="input-group">
-                                    <i>Ejemplo ....</i>
+                                    <i><span name="ciudad" id="ciudad"></span></i>
                                 </div>
                             </div>
                         </div>
                         </br>
                         <div class="form-group">
-                            <label class="col-md-2 control-label" for="Correo electronico">Correo</label>
+                            <label class="col-md-2 control-label">Taller</label>
                             <div class="col-md-10">
                                 <div class="input-group">
-                                    <i>Ejemplo ....</i>
+                                    <i><span name="taller" id="taller"></span></i>
+                                </div>
+                            </div>
+                        </div>
+                        </br>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Usuario</label>
+                            <div class="col-md-10">
+                                <div class="input-group">
+                                    <i><span name="usuario" id="usuario"></span></i>
+                                </div>
+                            </div>
+                        </div>
+                        </br>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Correo</label>
+                            <div class="col-md-10">
+                                <div class="input-group">
+                                    <i><span name="correo" id="correo"></span></i>
                                 </div>
                             </div>
                         </div>
@@ -377,7 +407,7 @@
                             </br>
                             <div class="wrapper">
                                 <span class="group-btn">
-                                    <button type="submit" name="insert_link" class="btn btn-info">Crear</button>
+                                    <button type="submit" name="insert_link" class="btn btn-info">Guardar</button>
                                 </span>
                             </div>
                         </form>
@@ -424,7 +454,7 @@
                                 </div>
                                 </br>
                                 </br>
-                                <button type="submit" name="taler" class="btn btn-info">Crear</button>
+                                <button type="submit" name="taler" class="btn btn-info">Guardar</button>
                             </div>
                         </form>
                     </div>
@@ -436,15 +466,40 @@
 
     <script type="text/javascript">
     $(document).on("click", ".link-taller", function() {
-        var myBookId = $(this).data('id');
-        $(".modal-body #id_taller").val(myBookId);
+        var tallerId = $(this).data('id');
+        $(".modal-body #id_taller").val(tallerId);
     });
     </script>
 
     <script type="text/javascript">
     $(document).on("click", ".cambiar-contrasena", function() {
-        var myBookId = $(this).data('id');
-        $(".modal-body #id_user").val(myBookId);
+        var userId = $(this).data('id');
+        $(".modal-body #id_user").val(userId);
+    });
+    </script>
+
+    <script type="text/javascript">
+    $(document).on("click", ".detalles-cuenta", function() {
+        var nombre = $(this).data('nombre');
+        $(".modal-body #nombre").text(nombre);
+        var apellido = $(this).data('apellido');
+        $(".modal-body #apellido").text(apellido);
+        var edad = $(this).data('edad');
+        $(".modal-body #edad").text(edad);
+        var sexo = $(this).data('sexo');
+        $(".modal-body #sexo").text(sexo);
+        var celular = $(this).data('celular');
+        $(".modal-body #celular").text(celular);
+        var pais = $(this).data('pais');
+        $(".modal-body #pais").text(pais);
+        var ciudad = $(this).data('ciudad');
+        $(".modal-body #ciudad").text(ciudad);
+        var taller = $(this).data('taller');
+        $(".modal-body #taller").text(taller);
+        var usuario = $(this).data('usuario');
+        $(".modal-body #usuario").text(usuario);
+        var correo = $(this).data('correo');
+        $(".modal-body #correo").text(correo);
     });
     </script>
 
