@@ -5,87 +5,66 @@
 <html lang="en">
 
 <head>
-    <title>Campamento PdVB</title>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="shortcut icon" href="#" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw=="
-        crossorigin="anonymous">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"
-        integrity="sha256-3dkvEK0WLHRJ7/Csr0BZjAWxERc5WH7bdeUya2aXxdU= sha512-+L4yy6FRcDGbXJ9mPG8MT/3UCDzwR9gPeyFNMCtInsol++5m3bk2bXWKdZjvybmohrAsn3Ua5x8gfLnbE1YkOg=="
-        crossorigin="anonymous">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
+    <title>Campamento PdVB</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/new-age.css" rel="stylesheet">
+    
+    <!-- Custom javaScript for alert -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-    <style>
-    html,
-    body {
-        height: 100%;
-    }
-
-    body {
-        display: -ms-flexbox;
-        display: -webkit-box;
-        display: flex;
-        -ms-flex-align: center;
-        -ms-flex-pack: center;
-        -webkit-box-align: center;
-        align-items: center;
-        -webkit-box-pack: center;
-        justify-content: center;
-        padding-top: 40px;
-        padding-bottom: 40px;
-        background-color: #f5f5f5;
-    }
-
-    .form-signin {
-        width: 100%;
-        max-width: 330px;
-        padding: 15px;
-        margin: 0 auto;
-    }
-
-    .form-signin .checkbox {
-        font-weight: 400;
-    }
-
-    .form-signin .form-control {
-        position: relative;
-        box-sizing: border-box;
-        height: auto;
-        padding: 10px;
-        font-size: 16px;
-    }
-
-    .form-signin .form-control:focus {
-        z-index: 2;
-    }
-
-    .form-signin input[type="user"] {
-        margin-bottom: -1px;
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: 0;
-    }
-
-    .form-signin input[type="password"] {
-        margin-bottom: 10px;
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-    }
-    </style>
 </head>
 
-<body class="text-center">
+<body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">Inicio</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#campamento">Campamento</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#detalles">Detalles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#contacto">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="btn btn-info" role="button" aria-pressed="true" data-toggle="modal"
+                            data-target="#ingresar">Ingresar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Modal login -->
     <form class="form-signin" action="#" method="post">
-        <img src="images/logos/pv_blanco.png" alt="" style="border-radius: 100%;" width="72" height="72">
-        <h1 class="h3 mb-3 font-weight-normal">Palabra de Vida Bolivia</h1>
-        <a href="registro.php" class="btn btn-primary" role="button" aria-pressed="true">Registrar</a>
-        <a href="#" class="btn btn-default" role="button" aria-pressed="true" data-toggle="modal"
-            data-target="#ingresar">Ingresar</a>
-        <!-- Modal -->
         <div class="modal fade" id="ingresar" tabindex="-1" role="dialog" aria-labelledby="ingresarLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -103,7 +82,8 @@
                         <input name="password" type="password" id="userPassword"
                             class="form-control input-sm chat-input" placeholder="contraseña" />
                         </br>
-                        <a class="example-popover" data-toggle="popover" title="Habla con nosotros"
+                        <a class="example-popover" data-toggle="popover"
+                            title="Habla con nosotros al WhatsApp +591 77777777"
                             data-content="WhatsApp +591 77777777">Olvidaste tu contraseña?</a>
                         </br>
                         </br>
@@ -116,15 +96,183 @@
                 </div>
             </div>
         </div>
-        </br>
-        </br>
-        <p class="mt-5 mb-3 text-muted">&copy; 2019-2020</p>
     </form>
+
+    <header class="masthead">
+        <div class="container h-100">
+            <div class="row h-100">
+                <div class="col-lg-5 my-auto">
+                    <div class="header-content mx-auto">
+                        <h1 class="mb-5">Lo bueno esta por comenzar</h1>
+                        <a href="registro.php" class="btn btn-outline btn-xl js-scroll-trigger">Registrate ahora!</a>
+                    </div>
+                </div>
+                <div class="col-lg-7 my-auto">
+                    <div class="screen">
+                        <img src="images/logos/logo_completo.png" class="img-fluid" alt="">
+                        <div class="portada" id="portada">
+                            <div id="cuenta"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="download bg-primary text-center" id="campamento">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <h2 class="section-heading">Campamento virtual</h2>
+                    <p>Una experiencia única, el primer campamento virtual de Bolivia.
+                        Apto para adolescentes y jovenes.
+                        ¡Inscríbete gratis ahora y no dejes pasar esta gran oportunidad!</p>
+                    <div class="badges">
+                        <a class="badge-link" href="#"><img src="images/logos/pv_blanco.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 my-auto">
+                    <div class="screen">
+                        <img src="images/fotos/chicos.png" class="img-fluid" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features bg-secundary" id="detalles">
+        <div class="container">
+            <div class="section-heading text-center">
+                <h2>Sin limites para la diversión</h2>
+                <p class="text-white-50">Mira lo que podras hacer durante este campamento</p>
+                <hr>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 my-auto">
+                    <div class="screen">
+                        <img src="images/fotos/chicas.png" class="img-fluid" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-8 my-auto">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="feature-item">
+                                    <!-- <i class="icon-book-open text-primary"></i> -->
+                                    <img src="images/MINIATURAS/3 MINIATURA EXPOSITORES.png"
+                                        style="width: 100%;height: 115px;" alt="">
+                                    <h3>Devocionales</h3>
+                                    <p class="text-white-50">Podras compartir devocionales junto a tu conserejo!</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="feature-item">
+                                    <img src="images/MINIATURAS/5 MINIATURA JUEGOS.png"
+                                        style="width: 100%;height: 115px;" alt="">
+                                    <!-- <i class="icon-game-controller text-primary"></i> -->
+                                    <h3>Juegos</h3>
+                                    <p class="text-white-50">Juegos y competencias durante todo el campamento!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="feature-item">
+                                    <!-- <i class="icon-microphone text-primary"></i> -->
+                                    <img src="images/MINIATURAS/2 MINIATURA MUSICA.png"
+                                        style="width: 100%;height: 115px;" alt="">
+                                    <h3>Talleres</h3>
+                                    <p class="text-white-50">Talleres especiales solo para ti y las dudas que tengas!
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="feature-item">
+                                    <!-- <i class="icon-camrecorder text-primary"></i> -->
+                                    <img src="images/MINIATURAS/4 MINIATURA TALLERES.png"
+                                        style="width: 100%;height: 115px;" alt="">
+                                    <h3>Transmisiones</h3>
+                                    <p class="text-white-50">Las transmisiones serán en vivo en el cual podras
+                                        participar!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="cta-content">
+            <div class="container">
+                <h2>Angostura.<br>Bolivia.</h2>
+                <a href="registro.php" class="btn btn-outline btn-xl js-scroll-trigger">Registrate ahora!</a>
+            </div>
+        </div>
+        <div class="overlay"></div>
+    </section>
+
+    <section class="contact bg-primary" id="contacto">
+        <div class="container">
+            <h2>Somos <i class="fas fa-heart"></i> mejores amigos!
+            </h2>
+            <ul class="list-inline list-social">
+                <li class="list-inline-item social-youtube">
+                    <a href="https://www.youtube.com/channel/UCkXKwkqNAlze8fy75VX0k_g/videos" target="_blank">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </li>
+                <li class="list-inline-item social-facebook">
+                    <a href="https://www.facebook.com/Palabra-de-Vida-Bolivia-101117892019" target="_blank">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </li>
+                <li class="list-inline-item social-instagram">
+                    <a href="https://www.facebook.com/Palabra-de-Vida-Bolivia-101117892019" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; Campavirtualtiemporeal.com 2020. All Rights Reserved.</p>
+            <ul class="list-inline">
+                <li class="list-inline-item">
+                    <a href="#">Privacy</a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="#">Terms</a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="#">FAQ</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/new-age.js"></script>
+
+    <!-- Custom scripts for this counter -->
+    <script src="js/simplyCountdown.min.js"></script>
+    <script src="js/countdown.js"></script>
+
     <?php
-        if (!empty($error)) {
-            include("config/alertas.php");
-            popUpWarning($error);
-        }
+    if (!empty($error)) {
+        include("config/alertas.php");
+        popUpWarning($error);
+    }
     ?>
     <script>
     $(function() {
