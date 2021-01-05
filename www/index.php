@@ -25,7 +25,7 @@
 
     <!-- Custom styles for this template -->
     <link href="css/new-age.css" rel="stylesheet">
-    
+
     <!-- Custom javaScript for alert -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
@@ -110,6 +110,8 @@
                 <div class="col-lg-7 my-auto">
                     <div class="screen">
                         <img src="images/logos/logo_completo.png" class="img-fluid" alt="">
+                        <br />
+                        <br />
                         <div class="portada" id="portada">
                             <div id="cuenta"></div>
                         </div>
@@ -122,7 +124,13 @@
     <section class="download bg-primary text-center" id="campamento">
         <div class="container">
             <div class="row">
-                <div class="col-md-8 mx-auto">
+                <div class="col-lg-3 my-auto">
+                    <div class="screen">
+                        <img src="images/fotos/c.png" class="img-fluid" alt="">
+                    </div>
+                </div>
+                <br />
+                <div class="col-md-7 mx-auto">
                     <h2 class="section-heading">Campamento virtual</h2>
                     <p>Una experiencia única, el primer campamento virtual de Bolivia.
                         Apto para adolescentes y jovenes.
@@ -131,9 +139,10 @@
                         <a class="badge-link" href="#"><img src="images/logos/pv_blanco.png" alt=""></a>
                     </div>
                 </div>
-                <div class="col-lg-4 my-auto">
+                <br />
+                <div class="col-lg-2 my-auto">
                     <div class="screen">
-                        <img src="images/fotos/chicos.png" class="img-fluid" alt="">
+                        <img src="images/fotos/d.png" class="img-fluid" alt="">
                     </div>
                 </div>
             </div>
@@ -150,7 +159,7 @@
             <div class="row">
                 <div class="col-lg-4 my-auto">
                     <div class="screen">
-                        <img src="images/fotos/chicas.png" class="img-fluid" alt="">
+                        <img src="images/fotos/e.png" class="img-fluid" alt="">
                     </div>
                 </div>
                 <div class="col-lg-8 my-auto">
@@ -158,10 +167,10 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="feature-item">
-                                    <!-- <i class="icon-book-open text-primary"></i> -->
                                     <img src="images/MINIATURAS/3 MINIATURA EXPOSITORES.png"
                                         style="width: 100%;height: 115px;" alt="">
-                                    <h3>Devocionales</h3>
+                                    <br />
+                                    <br />
                                     <p class="text-white-50">Podras compartir devocionales junto a tu conserejo!</p>
                                 </div>
                             </div>
@@ -169,8 +178,8 @@
                                 <div class="feature-item">
                                     <img src="images/MINIATURAS/5 MINIATURA JUEGOS.png"
                                         style="width: 100%;height: 115px;" alt="">
-                                    <!-- <i class="icon-game-controller text-primary"></i> -->
-                                    <h3>Juegos</h3>
+                                    <br />
+                                    <br />
                                     <p class="text-white-50">Juegos y competencias durante todo el campamento!</p>
                                 </div>
                             </div>
@@ -178,23 +187,33 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="feature-item">
-                                    <!-- <i class="icon-microphone text-primary"></i> -->
                                     <img src="images/MINIATURAS/2 MINIATURA MUSICA.png"
                                         style="width: 100%;height: 115px;" alt="">
-                                    <h3>Talleres</h3>
+                                    <br />
+                                    <br />
                                     <p class="text-white-50">Talleres especiales solo para ti y las dudas que tengas!
                                     </p>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="feature-item">
-                                    <!-- <i class="icon-camrecorder text-primary"></i> -->
                                     <img src="images/MINIATURAS/4 MINIATURA TALLERES.png"
                                         style="width: 100%;height: 115px;" alt="">
-                                    <h3>Transmisiones</h3>
+                                    <br />
+                                    <br />
                                     <p class="text-white-50">Las transmisiones serán en vivo en el cual podras
                                         participar!</p>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="feature-item">
+                                <img src="images/MINIATURAS/1 MINIATURA AMIGOS.png" style="width: 100%;height: 115px;"
+                                    alt="">
+                                <br />
+                                <br />
+                                <p class="text-white-50">Tambien podrás hacer mejores amigos!
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -219,7 +238,7 @@
             </h2>
             <ul class="list-inline list-social">
                 <li class="list-inline-item social-youtube">
-                    <a href="https://www.youtube.com/channel/UCkXKwkqNAlze8fy75VX0k_g/videos" target="_blank">
+                    <a href="https://www.youtube.com/channel/UCWhkoKpoDKDtyK7_tDM4YVQ" target="_blank">
                         <i class="fab fa-youtube"></i>
                     </a>
                 </li>
@@ -229,7 +248,7 @@
                     </a>
                 </li>
                 <li class="list-inline-item social-instagram">
-                    <a href="https://www.facebook.com/Palabra-de-Vida-Bolivia-101117892019" target="_blank">
+                    <a href="https://www.instagram.com/pdvbolivia/" target="_blank">
                         <i class="fab fa-instagram"></i>
                     </a>
                 </li>
