@@ -475,6 +475,10 @@ mark,
   max-width: 100%;
   height: auto;
 }
+.pdvblogo {
+  max-width: 50%;
+  height: auto;
+}
 
 .img-thumbnail {
   padding: 0.25rem;

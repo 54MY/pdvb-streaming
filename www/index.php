@@ -55,7 +55,7 @@
                         <a class="nav-link js-scroll-trigger" href="#contacto">Contacto</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="btn btn-info" role="button" aria-pressed="true" data-toggle="modal"
+                        <a href="#" class="btn btn-outline" role="button" aria-pressed="true" data-toggle="modal"
                             data-target="#ingresar">Ingresar</a>
                     </li>
                 </ul>
@@ -83,8 +83,8 @@
                             class="form-control input-sm chat-input" placeholder="contraseña" />
                         </br>
                         <a class="example-popover" data-toggle="popover"
-                            title="Habla con nosotros al WhatsApp +591 77777777"
-                            data-content="WhatsApp +591 77777777">Olvidaste tu contraseña?</a>
+                            title="Habla con nosotros al WhatsApp +591 68490649"
+                            data-content="WhatsApp +591 68490649">Olvidaste tu contraseña?</a>
                         </br>
                         </br>
                         <div class="wrapper">
@@ -102,9 +102,11 @@
         <div class="container h-100">
             <div class="row h-100">
                 <div class="col-lg-5 my-auto">
-                    <div class="header-content mx-auto">
-                        <h1 class="mb-5">Lo bueno esta por comenzar</h1>
-                        <a href="registro.php" class="btn btn-outline btn-xl js-scroll-trigger">Registrate ahora!</a>
+                    <div class="header-content">
+                        <img src="images/logos/pv_blanco.png" class="pdvblogo" alt="">
+                        <br />
+                        <h1 class="mb-5" style="font-family: 'Helvetica LT Std';">Bolivia</h1>
+                        <a href="registro.php" class="btn btn-info btn-xl js-scroll-trigger">Registrate ahora!</a>
                     </div>
                 </div>
                 <div class="col-lg-7 my-auto">
@@ -112,6 +114,7 @@
                         <img src="images/logos/logo_completo.png" class="img-fluid" alt="">
                         <br />
                         <br />
+                        <h2 class="mb-5" style="text-align: center">Lo bueno esta por comenzar !!!</h>
                         <div class="portada" id="portada">
                             <div id="cuenta"></div>
                         </div>
@@ -131,7 +134,7 @@
                 </div>
                 <br />
                 <div class="col-md-7 mx-auto">
-                    <h2 class="section-heading">Campamento virtual</h2>
+                    <h2 class="section-heading">Campamento Virtual</h2>
                     <p>Una experiencia única, el primer campamento virtual de Bolivia.
                         Apto para adolescentes y jovenes.
                         ¡Inscríbete gratis ahora y no dejes pasar esta gran oportunidad!</p>
@@ -201,8 +204,7 @@
                                         style="width: 100%;height: 115px;" alt="">
                                     <br />
                                     <br />
-                                    <p class="text-white-50">Las transmisiones serán en vivo en el cual podras
-                                        participar!</p>
+                                    <p class="text-white-50">Participa de las transmisiones en vivo!</p>
                                 </div>
                             </div>
                         </div>
@@ -212,7 +214,7 @@
                                     alt="">
                                 <br />
                                 <br />
-                                <p class="text-white-50">Tambien podrás hacer mejores amigos!
+                                <p class="text-white-50">Podrás tener una gran oportunidad de hacer grandes amigos!
                                 </p>
                             </div>
                         </div>
@@ -225,8 +227,8 @@
     <section class="cta">
         <div class="cta-content">
             <div class="container">
-                <h2>Angostura.<br>Bolivia.</h2>
-                <a href="registro.php" class="btn btn-outline btn-xl js-scroll-trigger">Registrate ahora!</a>
+                <h2>La Angostura<br>Bolivia.</h2>
+                <a href="registro.php" class="btn btn-info btn-xl js-scroll-trigger">Registrate ahora!</a>
             </div>
         </div>
         <div class="overlay"></div>
@@ -234,7 +236,7 @@
 
     <section class="contact bg-primary" id="contacto">
         <div class="container">
-            <h2>Somos <i class="fas fa-heart"></i> mejores amigos!
+            <h2>Siguenos <i class="far fa-thumbs-up"></i> en nuestras redes sociales!
             </h2>
             <ul class="list-inline list-social">
                 <li class="list-inline-item social-youtube">
