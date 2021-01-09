@@ -245,7 +245,7 @@
                                         onclick="calculateAge()">
                                         <option selected>Que edad tienes?</option>
                                         <?php
-                                            for ($i = 11; $i <= 35; $i++) {
+                                            for ($i = 12; $i <= 35; $i++) {
                                                 echo '<option value="' . $i . '">' . $i . '</option>';
                                             }
                                         ?>
@@ -314,7 +314,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group" id="ciudadOtro2" style="display:none">
+                        <div class="form-group" id="ciudadOtr2" style="display:none">
                             <label class="col-sm-4 control-label" for="ciudadOtro">Escriba su ciudad</label>
                             <div class="col-sm-8">
                                 <div class="input-group othertop">
@@ -434,8 +434,8 @@
                                     <div class="input-group-addon">
                                         <em class="fa fa-lock"></em>
                                     </div>
-                                    <input class="form-control" type="password" id="contrasena" require="true" type="text"
-                                        name="contrasena" minlength="8"/>
+                                    <input class="form-control" type="password" id="contrasena" require="true"
+                                        type="text" name="contrasena" minlength="8" />
                                 </div>
                             </div>
                         </div>
@@ -453,6 +453,8 @@
             </div>
         </div>
     </div>
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script>
     function assistChurch() {
@@ -465,7 +467,8 @@
         }
     }
     </script>
-    <script>
+
+    <!-- <script>
     function selectCountry() {
         var selectBox = document.getElementById("pais");
         var ciudad2 = document.getElementById("ciudad2");
@@ -502,6 +505,41 @@
             tallerMayores.style.display = "none";
         }
     }
+    </script> -->
+
+    <script>
+    $('#pais').on('change', function() {
+        var ciudad2 = document.getElementById("ciudad2");
+        var ciudadOtro2 = document.getElementById("ciudadOtr2");
+        var selectedValue = this.value;
+        if (selectedValue == "BOLIVIA") {
+            ciudad2.style.display = "block";
+            ciudadOtro2.style.display = "none";
+        } else if (selectedValue != "BOLIVIA" && selectedValue != "") {
+            ciudadOtro2.style.display = "block";
+            ciudad2.style.display = "none";
+        } else {
+            ciudad2.style.display = "none";
+            ciudadOtro2.style.display = "none";
+        }
+    });
+    </script>
+    <script>
+    $('#edad').on('change', function() {
+        var tallerMenores = document.getElementById("tallerMenores");
+        var tallerMayores = document.getElementById("tallerMayores");
+        var selectedValue = this.value;
+        if (selectedValue > 10 && selectedValue < 19) {
+            tallerMenores.style.display = "block";
+            tallerMayores.style.display = "none";
+        } else if (selectedValue > 18 && selectedValue < 36) {
+            tallerMayores.style.display = "block";
+            tallerMenores.style.display = "none";
+        } else {
+            tallerMenores.style.display = "none";
+            tallerMayores.style.display = "none";
+        }
+    });
     </script>
 </body>
 
