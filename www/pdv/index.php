@@ -110,6 +110,63 @@
                die('Could not enter data: ' . mysqli_error());
             }
         }
+        if(isset($_POST['dividir_cuartos'])){
+            $sql_chicas = "SELECT id FROM pdvb.Acampante a WHERE a.Sexo = 'Femenino' ORDER BY Edad ASC";
+            $resul_chicas = mysqli_query($con,$sql_chicas);
+            $limitador = 0;
+            $cuarto = 0;
+            while ($fila = mysqli_fetch_array($resul_chicas)){
+                if( $limitador % 10 === 0 ) {
+                    $cuarto ++;
+                }
+                $limitador ++;
+                $sql_insert_cuartos_chicas = "UPDATE pdvb.Acampante SET Numero_Cuarto=$cuarto WHERE id = " .$fila[0];
+                $insertar_cuartos_chicas = mysqli_query($con,$sql_insert_cuartos_chicas);
+            }
+
+            $sql_chicos = "SELECT id FROM pdvb.Acampante a WHERE a.Sexo = 'Masculino' ORDER BY Edad ASC";
+            $resul_chicos = mysqli_query($con,$sql_chicos);
+            $limitador = 0;
+            $cuarto = 0;
+            while ($fila = mysqli_fetch_array($resul_chicos)){
+                if( $limitador % 10 === 0 ) {
+                    $cuarto ++;
+                }
+                $limitador ++;
+                $sql_insert_cuartos_chicos = "UPDATE pdvb.Acampante SET Numero_Cuarto=$cuarto WHERE id = " .$fila[0];
+                $insertar_cuartos_chicos = mysqli_query($con,$sql_insert_cuartos_chicos);
+            }
+            if($insertar_cuartos_chicas && $insertar_cuartos_chicos) {
+                $mensaje = 'Realizado exitosamente';
+                popUpSuccess('Division de cuartos', $mensaje);
+            } else if(! $insertar_cuartos_chicas && $insertar_cuartos_chicos ) {
+                $mensaje = 'Nose pudo registrar';
+                popUpWarning($mensaje);
+                die('Could not enter data: ' . mysqli_error());
+            }
+        }
+        if(isset($_POST['dividir_equipos'])){
+            $sql_cuartos = "SELECT id, Numero_Cuarto FROM pdvb.Acampante a ORDER BY Numero_Cuarto ASC";
+            $resul_cuartos = mysqli_query($con,$sql_cuartos);
+            $test;
+            while ($fila = mysqli_fetch_array($resul_cuartos)){
+                if ($fila[1]%2==0){
+                    $sql_insert_equipos = "UPDATE pdvb.Acampante SET Color='Rojo' WHERE id = " .$fila[0];
+                    $insertar_equipo_rojo = mysqli_query($con,$sql_insert_equipos);
+                } else {
+                    $sql_insert_equipos = "UPDATE pdvb.Acampante SET Color='Amarillo' WHERE id = " .$fila[0];
+                    $insertar_equipo_amarillo = mysqli_query($con,$sql_insert_equipos);
+                }
+            }
+            if($insertar_equipo_rojo && $insertar_equipo_amarillo) {
+                $mensaje = 'Realizado exitosamente';
+                popUpSuccess('Division de equipos', $mensaje);
+            } else if(! $insertar_equipo_rojo && $insertar_equipo_amarillo ) {
+                $mensaje = 'Nose pudo registrar';
+                popUpWarning($mensaje);
+                die('Could not enter data: ' . mysqli_error());
+            }
+        }
     ?>
     </br>
     </br>
@@ -141,17 +198,39 @@
                 <div class="tab-content ">
                     <div class="tab-pane active" id="1">
                         </br>
-                        <div class="col-md-4 col-md-offset-10">
-                            <a href="../controler/export.php" class="btn btn-info btn-sm" role="button"
-                                aria-pressed="true">Imprimir excel</a>
+                        <div>
+                            <?php
+                                $sql_verificar_cuartos = "SELECT id FROM pdvb.Acampante a WHERE a.Numero_Cuarto IS NULL";
+                                $resul_cuartos = mysqli_query($con,$sql_verificar_cuartos);
+                                $row_cnt = $resul_cuartos->num_rows;
+                                if (!empty($row_cnt)){
+                                    echo '<div class="col-md-10"> <a href="#" class="btn btn-success btn-sm" role="button" aria-pressed="true"
+                                        data-toggle="modal" data-target="#dividir_cuartos">Dividir a cuartos</a></div>';
+                                } else {
+                                    echo '<div class="col-md-2"> <a href="#" class="btn btn-danger btn-sm"
+                                        aria-pressed="true" disabled>Cuartos divididos</a></div>';
+                                    $sql_verificar_equipos = "SELECT id FROM pdvb.Acampante a WHERE a.Color IS NULL";
+                                    $resul_equipo = mysqli_query($con,$sql_verificar_equipos);
+                                    $row_cnt = $resul_equipo->num_rows;
+                                    if (!empty($row_cnt)){
+                                        echo '<div class="col-md-8"> <a href="#" class="btn btn-success btn-sm" role="button" aria-pressed="true"
+                                            data-toggle="modal" data-target="#dividir_equipos">Dividir equipos</a></div>';
+                                    } else {
+                                        echo '<div class="col-md-8"> <a href="#" class="btn btn-danger btn-sm"
+                                            aria-pressed="true" disabled>Equipos divididos</a></div>';
+                                    }
+                                }
+                            ?>
+                            <div class="col-md-2">
+                                <a href="../controler/export.php" class="btn btn-info btn-sm" role="button"
+                                    aria-pressed="true">Imprimir excel</a>
+                            </div>
                         </div>
                         </br>
                         </br>
                         <div class="table-responsive">
                             <?php
-                                include("../config/db.php");
-                                include("../config/conexion.php");
-                                $query = "SELECT a.id, Nombres, Apellidos, Edad, Sexo, Celular, Ciudad, Pais, Usuario, Correo, t.Taller
+                                $query = "SELECT a.id, Nombres, Apellidos, Edad, Sexo, Celular, Ciudad, Pais, Usuario, Correo, Color, Numero_Cuarto, t.Taller
                                             FROM pdvb.Acampante a INNER JOIN pdvb.Talleres t ON Id_Taller = t.id";
                                 $result = mysqli_query($con,$query); 
                                 echo '<table class="table table-striped">';
@@ -180,6 +259,8 @@
                                                 data-usuario="' . $row['Usuario'] . '"
                                                 data-correo="' . $row['Correo'] . '"
                                                 data-taller="' . $row['Taller'] . '"
+                                                data-cuarto="' . $row['Numero_Cuarto'] . '"
+                                                data-color="' . $row['Color'] . '"
                                                 data-toggle="modal" data-target="#detallesCuenta"></span></a></td>';
                                         echo '<td>' . $row['id'] . '</td>';
                                         echo '<td>' . $row['Nombres'] . '</td>';
@@ -192,8 +273,6 @@
                                     echo '</tr>';
                                 }
                                 echo '</table>';
-                                $result->close();
-                                mysqli_close($con);
                             ?>
                         </div>
                     </div>
@@ -207,8 +286,6 @@
                         </br>
                         <div class="table-responsive">
                             <?php
-                                include("../config/db.php");
-                                include("../config/conexion.php");
                                 $query = "SELECT id, Taller, Inscritos, Disponible, Link_Zoom FROM Talleres";
                                 $result = mysqli_query($con,$query); 
                                 echo '<table class="table table-striped">';
@@ -234,7 +311,8 @@
                                         if($row['Link_Zoom']){
                                             echo '<td><a href="' . $row['Link_Zoom'] . '" target="_blank">Ir a sala</td>';
                                         } else  {
-                                            echo '<td><button type="button" class="link-taller btn btn-default btn-sm" data-id="' . $row['id'] . '" data-toggle="modal" data-target="#linkTaller">Insertar</button><td>';
+                                            echo '<td><button type="button" class="link-taller btn btn-default btn-sm"
+                                            data-id="' . $row['id'] . '" data-toggle="modal" data-target="#linkTaller">Insertar</button><td>';
                                         }
                                     echo '</tr>';
                                 }
@@ -255,6 +333,56 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Cuartos -->
+        <div class="modal fade" id="dividir_cuartos" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h5 class="modal-title center" id="exampleModalLabel">Confirmacion de division de cuartos</h5>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post">
+                            <p>Esta accion no se puede revertir ya que afectara a la base de datos de manera permanente
+                            </p>
+                            </br>
+                            <div class="wrapper">
+                                <span class="group-btn">
+                                    <button type="submit" name="dividir_cuartos"
+                                        class="btn btn-danger">Confirmar</button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Equipos -->
+        <div class="modal fade" id="dividir_equipos" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h5 class="modal-title center" id="exampleModalLabel">Confirmacion de dvision de equipo</h5>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post">
+                            <p>Esta accion no se puede revertir ya que afectara a la base de datos de manera permanente
+                            </p>
+                            </br>
+                            <div class="wrapper">
+                                <span class="group-btn">
+                                    <button type="submit" name="dividir_equipos"
+                                        class="btn btn-danger">Confirmar</button>
+                                </span>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -385,6 +513,24 @@
                             </div>
                         </div>
                         </br>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Cuarto</label>
+                            <div class="col-md-10">
+                                <div class="input-group">
+                                    <i><span name="cuarto" id="cuarto"></span></i>
+                                </div>
+                            </div>
+                        </div>
+                        </br>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Color</label>
+                            <div class="col-md-10">
+                                <div class="input-group">
+                                    <i><span name="color" id="color"></span></i>
+                                </div>
+                            </div>
+                        </div>
+                        </br>
                     </div>
                 </div>
             </div>
@@ -500,6 +646,10 @@
         $(".modal-body #usuario").text(usuario);
         var correo = $(this).data('correo');
         $(".modal-body #correo").text(correo);
+        var cuarto = $(this).data('cuarto');
+        $(".modal-body #cuarto").text(cuarto);
+        var color = $(this).data('color');
+        $(".modal-body #color").text(color);
     });
     </script>
 

@@ -76,7 +76,7 @@
             } else if (empty($celular) || empty($celular2)){
                 $mensaje='Campo celular requerido';
                 popUpWarning($mensaje);
-            } else if((strlen($celular) < 7) || (strlen($celular2) < 7)){
+            } else if((strlen($celular) < 17) || (strlen($celular2) < 17)){
                 $mensaje='Numero de celular no permitido';
                 popUpWarning($mensaje);
             }  else if(mysqli_num_rows($existe_celular) > 0) {
@@ -269,27 +269,6 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="Celular">Celular</label>
-                            <div class="col-md-4">
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <em class="fa fa-mobile fa-1x" style="font-size: 20px;"></em>
-                                    </div>
-                                    <input id="celular1" name="celular1" type="number" placeholder="Celular"
-                                        class="form-control input-md">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <em class="fa fa-mobile fa-1x" style="font-size: 20px;"></em>
-                                    </div>
-                                    <input id="celular2" name="celular2" type="number" placeholder="Confirmar celular"
-                                        class="form-control input-md">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
                             <label class="col-sm-4 control-label" for="pais">Pais</label>
                             <div class="col-sm-8">
                                 <div class="input-group othertop">
@@ -345,6 +324,29 @@
                                         <option value="BENI">Beni</option>
                                         <option value="TARIJA">Tarija</option>
                                     </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="Celular">Celular</label>
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <em class="fa fa-mobile fa-1x" style="font-size: 20px;"></em>
+                                        <input class="code" type="text" style="width: 40px;height: 16px" disabled />
+                                    </div>
+                                    <input id="celular1" name="celular1" type="number" placeholder="Celular"
+                                        class="form-control input-md">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <em class="fa fa-mobile fa-1x" style="font-size: 20px;"></em>
+                                        <input class="code" type="text" style="width: 40px;height: 16px" disabled />
+                                    </div>
+                                    <input id="celular2" name="celular2" type="number" placeholder="Confirmar celular"
+                                        class="form-control input-md">
                                 </div>
                             </div>
                         </div>
@@ -468,45 +470,6 @@
     }
     </script>
 
-    <!-- <script>
-    function selectCountry() {
-        var selectBox = document.getElementById("pais");
-        var ciudad2 = document.getElementById("ciudad2");
-        var ciudadOtro2 = document.getElementById("ciudadOtro2");
-        var selectedValue = selectBox.options[selectBox.selectedIndex].value;
-        console.log(selectedValue);
-        if (selectedValue == "BOLIVIA") {
-            ciudad2.style.display = "block";
-            ciudadOtro2.style.display = "none";
-        } else if (selectedValue != "BOLIVIA" && selectedValue != "") {
-            ciudadOtro2.style.display = "block";
-            ciudad2.style.display = "none";
-        } else {
-            ciudad2.style.display = "none";
-            ciudadOtro2.style.display = "none";
-        }
-    }
-    </script>
-    <script>
-    function calculateAge() {
-        var selectBox = document.getElementById("edad");
-        var tallerMenores = document.getElementById("tallerMenores");
-        var tallerMayores = document.getElementById("tallerMayores");
-        var selectedValue = selectBox.options[selectBox.selectedIndex].value;
-        console.log(selectedValue);
-        if (selectedValue > 10 && selectedValue < 19) {
-            tallerMenores.style.display = "block";
-            tallerMayores.style.display = "none";
-        } else if (selectedValue > 18 && selectedValue < 36) {
-            tallerMayores.style.display = "block";
-            tallerMenores.style.display = "none";
-        } else {
-            tallerMenores.style.display = "none";
-            tallerMayores.style.display = "none";
-        }
-    }
-    </script> -->
-
     <script>
     $('#pais').on('change', function() {
         var ciudad2 = document.getElementById("ciudad2");
@@ -538,6 +501,48 @@
         } else {
             tallerMenores.style.display = "none";
             tallerMayores.style.display = "none";
+        }
+    });
+    </script>
+    <script>
+    $('#pais').on('change', function() {
+        switch (this.value) {
+            case 'BOLIVIA':
+                $('.code').val('+591');
+                break;
+            case 'ARGENTINA':
+                $('.code').val('+54');
+                break;
+            case 'CHILE':
+                $('.code').val('+56');
+                break;
+            case 'COLOMBIA':
+                $('.code').val('+57');
+                break;
+            case 'PERU':
+                $('.code').val('+51');
+                break;
+            case 'MEXICO':
+                $('.code').val('+52');
+                break;
+            case 'PARAGUAY':
+                $('.code').val('+595');
+                break;
+            case 'ECUADOR':
+                $('.code').val('+593');
+                break;
+            case 'URUGUAY':
+                $('.code').val('+598');
+                break;
+            case 'PANAMA':
+                $('.code').val('+507');
+                break;
+            case 'VENEZUELA':
+                $('.code').val('+58');
+                break;
+            default:
+                $('.code').val('000');
+                break;
         }
     });
     </script>
