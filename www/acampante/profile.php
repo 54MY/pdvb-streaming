@@ -4,7 +4,7 @@
     
     session_start();
     $user_check=$_SESSION['acampante'];
-    $ses_sql=mysqli_query($con, "SELECT a.Usuario, a.Correo, a.Nombres, a.Apellidos, a.Edad, a.Codigo_Pais, a.Celular, a.Pais, a.Ciudad, t.Taller, t.Link_Zoom, a.Color, a.Numero_cuarto
+    $ses_sql=mysqli_query($con, "SELECT a.Usuario, a.Correo, a.Nombres, a.Apellidos, a.Edad, a.Codigo_Pais, a.Celular, a.Pais, a.Ciudad, t.Taller, t.Link_Zoom, a.Color, a.Numero_Cuarto
                                 FROM pdvb.Acampante a INNER JOIN pdvb.Talleres t ON Id_Taller = t.id WHERE a.Usuario = '$user_check'");
     $row = mysqli_fetch_assoc($ses_sql);
 
@@ -19,8 +19,8 @@
     $ciudad =$row["Ciudad"];
     $taller =$row["Taller"];
     $link =$row["Link_Zoom"];
-    $cuarto =$row["Numero_cuarto"];
-    $equipo =$row["color"];
+    $cuarto =$row["Numero_Cuarto"];
+    $equipo =$row["Color"];
 
     if (!isset($_SESSION['acampante'])) {
         header("location: ../index.php"); 
@@ -84,7 +84,7 @@
                             </br>
                             </br>
                             <div class="form-group">
-                                <label class="col-md-2 control-label" for="Correo electronico">Nombres</label>
+                                <label class="col-md-2 control-label" for="Nombres">Nombres</label>
                                 <div class="col-md-8">
                                     <div class="input-group">
                                         <i><?php echo $nombres; ?></i>
@@ -94,7 +94,7 @@
                             </br>
                             </br>
                             <div class="form-group">
-                                <label class="col-md-2 control-label" for="Correo electronico">Apellidos</label>
+                                <label class="col-md-2 control-label" for="Apellidos">Apellidos</label>
                                 <div class="col-md-8">
                                     <div class="input-group">
                                         <i><?php echo $apellidos; ?></i>
@@ -104,7 +104,7 @@
                             </br>
                             </br>
                             <div class="form-group">
-                                <label class="col-md-2 control-label" for="Correo electronico">Edad</label>
+                                <label class="col-md-2 control-label" for="Edad">Edad</label>
                                 <div class="col-md-8">
                                     <div class="input-group">
                                         <i><?php echo $edad; ?></i>
@@ -114,7 +114,7 @@
                             </br>
                             </br>
                             <div class="form-group">
-                                <label class="col-md-2 control-label" for="Correo electronico">Celular</label>
+                                <label class="col-md-2 control-label" for="Celular">Celular</label>
                                 <div class="col-md-8">
                                     <div class="input-group">
                                         <i><?php echo $celular; ?></i>
@@ -124,7 +124,7 @@
                             </br>
                             </br>
                             <div class="form-group">
-                                <label class="col-md-2 control-label" for="Correo electronico">Pais</label>
+                                <label class="col-md-2 control-label" for="Pais">Pais</label>
                                 <div class="col-md-8">
                                     <div class="input-group">
                                         <i><?php echo $pais; ?></i>
@@ -134,7 +134,7 @@
                             </br>
                             </br>
                             <div class="form-group">
-                                <label class="col-md-2 control-label" for="Correo electronico">Ciudad</label>
+                                <label class="col-md-2 control-label" for="Ciudad">Ciudad</label>
                                 <div class="col-md-8">
                                     <div class="input-group">
                                         <i><?php echo $ciudad; ?></i>
@@ -146,7 +146,7 @@
                             </br>
                             </br>
                             <div class="form-group">
-                                <label class="col-md-2 control-label" for="Correo electronico">Taller</label>
+                                <label class="col-md-2 control-label" for="Taller">Taller</label>
                                 <div class="col-md-8">
                                     <div class="input-group">
                                         <i><?php echo $taller; ?></i>
@@ -155,7 +155,7 @@
                                 </br>
                                 </br>
                                 <?php if(!empty($link)){ ?>
-                                <label class="col-md-2 control-label" for="Correo electronico">Link de sala</label>
+                                <label class="col-md-2 control-label" for="Link_sala">Link de sala</label>
                                 <div class="col-md-8">
                                     <div class="input-group">
                                         <a href="<?php echo $link; ?>" target="_blank"><?php echo $link; ?></a>
@@ -175,7 +175,7 @@
                             </br>
                             </br>
                             <div class="form-group">
-                                <label class="col-md-2 control-label" for="Correo electronico">Cuarto</label>
+                                <label class="col-md-2 control-label" for="Cuarto">Cuarto</label>
                                 <div class="col-md-8">
                                     <div class="input-group">
                                         <i> # <?php echo $cuarto; ?></i>
@@ -185,10 +185,25 @@
                             </br>
                             </br>
                             <div class="form-group">
-                                <label class="col-md-2 control-label" for="Correo electronico">Equipo</label>
+                                <label class="col-md-2 control-label" for="Equipo">Equipo</label>
                                 <div class="col-md-8">
                                     <div class="input-group">
                                         <i><?php echo $equipo; ?></i>
+                                    </div>
+                                </div>
+                            </div>
+                            </br>
+                            </br>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="Cronograma">Cronograma</label>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <a download="cronograma-2021-pdvb.jpg" href="../images/programa-100.jpg"
+                                            class="btn btn-default btn-sm">Descargar cronograma</a>
+                                    </div>
+                                    </br>
+                                    <div class="input-group">
+                                        <img src="../images/programa-100.jpg" alt="" width="300" height="200">
                                     </div>
                                 </div>
                             </div>
@@ -197,7 +212,7 @@
                             </br>
                             </br>
                             <div class="form-group">
-                                <label class="col-md-2 control-label" for="Correo electronico">Usuario</label>
+                                <label class="col-md-2 control-label" for="Usuario">Usuario</label>
                                 <div class="col-md-8">
                                     <div class="input-group">
                                         <i><?php echo $usuario; ?></i>
@@ -217,10 +232,11 @@
                             </br>
                             </br>
                             <div class="form-group">
-                                <label class="col-md-2 control-label" for="Correo electronico">Aplicación</label>
+                                <label class="col-md-2 control-label" for="Aplicacion">Aplicación</label>
                                 <div class="col-md-8">
                                     <div class="input-group">
-                                        <a download="HORA_SILENCIOSA.apk" href="../vendor/apk/HORA_SILENCIOSA.apk" class="btn btn-default btn-sm">Descargar</a>
+                                        <a download="HORA_SILENCIOSA.apk" href="../vendor/apk/HORA_SILENCIOSA.apk"
+                                            class="btn btn-default btn-sm">Descargar aplicación</a>
                                     </div>
                                 </div>
                             </div>

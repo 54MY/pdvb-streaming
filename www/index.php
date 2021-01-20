@@ -15,7 +15,8 @@
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
-
+    <!-- Popper JS -->
+    <script src="vendor/popper/popper.min.js"></script>
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
@@ -83,7 +84,7 @@
                             class="form-control input-sm chat-input" placeholder="contraseña" />
                         </br>
                         <a class="example-popover" data-toggle="popover"
-                            title="Habla con nosotros al WhatsApp +591 68490649"
+                            title="Habla con nosotros al"
                             data-content="WhatsApp +591 68490649">Olvidaste tu contraseña?</a>
                         </br>
                         </br>
@@ -114,7 +115,7 @@
                         <img src="images/logos/logo_completo.png" class="img-fluid" alt="">
                         <br />
                         <br />
-                        <h2 class="mb-5" style="text-align: center">Lo bueno esta por comenzar !!!</h>
+                        <h2 class="mb-5" style="text-align: center">Lo bueno esta por comenzar !!!</h2>
                         <div class="portada" id="portada">
                             <div id="cuenta"></div>
                         </div>
