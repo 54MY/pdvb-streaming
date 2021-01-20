@@ -27,6 +27,17 @@
     body {
         background-color: #f5f5f5;
     }
+
+    #buscar {
+        background-image: url(../vendor/searchicon.png);
+        background-position: 10px 7px;
+        background-repeat: no-repeat;
+        width: 100%;
+        font-size: 13px;
+        padding: 7px 17px 7px 38px;
+        border: 1px solid #ddd;
+        margin-bottom: 12px;
+    }
     </style>
 
 </head>
@@ -228,12 +239,14 @@
                         </div>
                         </br>
                         </br>
+                        <input type="text" id="buscar" onkeyup="myFunction()" placeholder="Buscar por Nombres"
+                            title="Buscar por Nombres">
                         <div class="table-responsive">
                             <?php
                                 $query = "SELECT a.id, Nombres, Apellidos, Edad, Sexo, Celular, Ciudad, Pais, Usuario, Correo, Color, Numero_Cuarto, t.Taller
                                             FROM pdvb.Acampante a INNER JOIN pdvb.Talleres t ON Id_Taller = t.id";
                                 $result = mysqli_query($con,$query); 
-                                echo '<table class="table table-striped">';
+                                echo '<table id="acampante-abla" class="table table-striped">';
                                 echo '<thead>
                                         <tr>
                                             <th></th>
@@ -651,6 +664,27 @@
         var color = $(this).data('color');
         $(".modal-body #color").text(color);
     });
+    </script>
+
+    <script>
+    function myFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("buscar");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("acampante-abla");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[2];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
     </script>
 
 </body>
