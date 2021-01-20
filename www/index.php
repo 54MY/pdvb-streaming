@@ -240,7 +240,7 @@
             </h2>
             <ul class="list-inline list-social">
                 <li class="list-inline-item social-youtube">
-                    <a href="https://www.youtube.com/channel/UCWhkoKpoDKDtyK7_tDM4YVQ" target="_blank">
+                    <a href="https://www.youtube.com/channel/UCkWg8_h4xmv21YqfIiBHR-A" target="_blank">
                         <i class="fab fa-youtube"></i>
                     </a>
                 </li>

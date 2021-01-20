@@ -4,7 +4,7 @@
     
     session_start();
     $user_check=$_SESSION['acampante'];
-    $ses_sql=mysqli_query($con, "SELECT a.Usuario, a.Correo, a.Nombres, a.Apellidos, a.Edad, a.Codigo_Pais, a.Celular, a.Pais, a.Ciudad, t.Taller, t.Link_Zoom
+    $ses_sql=mysqli_query($con, "SELECT a.Usuario, a.Correo, a.Nombres, a.Apellidos, a.Edad, a.Codigo_Pais, a.Celular, a.Pais, a.Ciudad, t.Taller, t.Link_Zoom, a.Color, a.Numero_cuarto
                                 FROM pdvb.Acampante a INNER JOIN pdvb.Talleres t ON Id_Taller = t.id WHERE a.Usuario = '$user_check'");
     $row = mysqli_fetch_assoc($ses_sql);
 
@@ -19,6 +19,8 @@
     $ciudad =$row["Ciudad"];
     $taller =$row["Taller"];
     $link =$row["Link_Zoom"];
+    $cuarto =$row["Numero_cuarto"];
+    $equipo =$row["color"];
 
     if (!isset($_SESSION['acampante'])) {
         header("location: ../index.php"); 
@@ -72,7 +74,9 @@
                         </li>
                         <li><a href="#2" data-toggle="tab">Talleres</a>
                         </li>
-                        <li><a href="#3" data-toggle="tab">Cuenta</a>
+                        <li><a href="#3" data-toggle="tab">Equipo</a>
+                        </li>
+                        <li><a href="#4" data-toggle="tab">Cuenta</a>
                         </li>
                     </ul>
                     <div class="tab-content ">
@@ -83,11 +87,6 @@
                                 <label class="col-md-2 control-label" for="Correo electronico">Nombres</label>
                                 <div class="col-md-8">
                                     <div class="input-group">
-                                        <!-- <div class="input-group-addon">
-                                            <em class="fa fa-envelope-o"></em>
-                                        </div>
-                                        <input id="correo" name="correo" type="email" placeholder="Correo electronico"
-                                            class="form-control input-md" value="<?php echo $nombres; ?>"> -->
                                         <i><?php echo $nombres; ?></i>
                                     </div>
                                 </div>
@@ -98,11 +97,6 @@
                                 <label class="col-md-2 control-label" for="Correo electronico">Apellidos</label>
                                 <div class="col-md-8">
                                     <div class="input-group">
-                                        <!-- <div class="input-group-addon">
-                                            <em class="fa fa-envelope-o"></em>
-                                        </div>
-                                        <input id="correo" name="correo" type="email" placeholder="Correo electronico"
-                                            class="form-control input-md" value="<?php echo $apellidos; ?>"> -->
                                         <i><?php echo $apellidos; ?></i>
                                     </div>
                                 </div>
@@ -113,11 +107,6 @@
                                 <label class="col-md-2 control-label" for="Correo electronico">Edad</label>
                                 <div class="col-md-8">
                                     <div class="input-group">
-                                        <!-- <div class="input-group-addon">
-                                            <em class="fa fa-envelope-o"></em>
-                                        </div>
-                                        <input id="correo" name="correo" type="email" placeholder="Correo electronico"
-                                            class="form-control input-md" value="<?php echo $edad; ?>"> -->
                                         <i><?php echo $edad; ?></i>
                                     </div>
                                 </div>
@@ -128,12 +117,6 @@
                                 <label class="col-md-2 control-label" for="Correo electronico">Celular</label>
                                 <div class="col-md-8">
                                     <div class="input-group">
-                                        <!-- <div class="input-group-addon">
-                                            <em class="fa fa-envelope-o"></em>
-                                        </div>
-                                        <input id="correo" name="correo" type="email" placeholder="Correo electronico"
-                                            class="form-control input-md"
-                                            value="<?php echo $codigo_Pais; ?> <?php echo $celular; ?>"> -->
                                         <i><?php echo $celular; ?></i>
                                     </div>
                                 </div>
@@ -144,11 +127,6 @@
                                 <label class="col-md-2 control-label" for="Correo electronico">Pais</label>
                                 <div class="col-md-8">
                                     <div class="input-group">
-                                        <!-- <div class="input-group-addon">
-                                            <em class="fa fa-envelope-o"></em>
-                                        </div>
-                                        <input id="correo" name="correo" type="email" placeholder="Correo electronico"
-                                            class="form-control input-md" value="<?php echo $pais; ?>"> -->
                                         <i><?php echo $pais; ?></i>
                                     </div>
                                 </div>
@@ -159,11 +137,6 @@
                                 <label class="col-md-2 control-label" for="Correo electronico">Ciudad</label>
                                 <div class="col-md-8">
                                     <div class="input-group">
-                                        <!-- <div class="input-group-addon">
-                                            <em class="fa fa-envelope-o"></em>
-                                        </div>
-                                        <input id="correo" name="correo" type="email" placeholder="Correo electronico"
-                                            class="form-control input-md" value="<?php echo $ciudad; ?>"> -->
                                         <i><?php echo $ciudad; ?></i>
                                     </div>
                                 </div>
@@ -176,11 +149,6 @@
                                 <label class="col-md-2 control-label" for="Correo electronico">Taller</label>
                                 <div class="col-md-8">
                                     <div class="input-group">
-                                        <!-- <div class="input-group-addon">
-                                            <em class="fa fa-envelope-o"></em>
-                                        </div>
-                                        <input id="correo" name="correo" type="email" placeholder="Correo electronico"
-                                            class="form-control input-md" value="<?php echo $taller; ?>"> -->
                                         <i><?php echo $taller; ?></i>
                                     </div>
                                 </div>
@@ -190,11 +158,6 @@
                                 <label class="col-md-2 control-label" for="Correo electronico">Link de sala</label>
                                 <div class="col-md-8">
                                     <div class="input-group">
-                                        <!-- <div class="input-group-addon">
-                                            <em class="fa fa-envelope-o"></em>
-                                        </div>
-                                        <input id="correo" name="correo" type="email" placeholder="Correo electronico"
-                                            class="form-control input-md" value="<?php echo $link; ?>"> -->
                                         <a href="<?php echo $link; ?>" target="_blank"><?php echo $link; ?></a>
                                     </div>
                                 </div>
@@ -212,14 +175,31 @@
                             </br>
                             </br>
                             <div class="form-group">
+                                <label class="col-md-2 control-label" for="Correo electronico">Cuarto</label>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <i> # <?php echo $cuarto; ?></i>
+                                    </div>
+                                </div>
+                            </div>
+                            </br>
+                            </br>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="Correo electronico">Equipo</label>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <i><?php echo $equipo; ?></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="4">
+                            </br>
+                            </br>
+                            <div class="form-group">
                                 <label class="col-md-2 control-label" for="Correo electronico">Usuario</label>
                                 <div class="col-md-8">
                                     <div class="input-group">
-                                        <!-- <div class="input-group-addon">
-                                            <em class="fa fa-envelope-o"></em>
-                                        </div>
-                                        <input id="correo" name="correo" type="email" placeholder="Correo electronico"
-                                            class="form-control input-md" value="<?php echo $usuario; ?>"> -->
                                         <i><?php echo $usuario; ?></i>
                                     </div>
                                 </div>
@@ -230,12 +210,17 @@
                                 <label class="col-md-2 control-label" for="Correo electronico">Correo</label>
                                 <div class="col-md-8">
                                     <div class="input-group">
-                                        <!-- <div class="input-group-addon">
-                                            <em class="fa fa-envelope-o"></em>
-                                        </div>
-                                        <input id="correo" name="correo" type="email" placeholder="Correo electronico"
-                                            class="form-control input-md" value="<?php echo $correo; ?>"> -->
                                         <i><?php echo $correo; ?></i>
+                                    </div>
+                                </div>
+                            </div>
+                            </br>
+                            </br>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="Correo electronico">Aplicación</label>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <a href="../vendor/apk/HORA_SILENCIOSA.apk" class="btn btn-default btn-sm">Descargar</a>
                                     </div>
                                 </div>
                             </div>

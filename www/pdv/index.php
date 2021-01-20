@@ -523,7 +523,7 @@
                         </div>
                         </br>
                         <div class="form-group">
-                            <label class="col-md-2 control-label">Color</label>
+                            <label class="col-md-2 control-label">Equipo</label>
                             <div class="col-md-10">
                                 <div class="input-group">
                                     <i><span name="color" id="color"></span></i>
