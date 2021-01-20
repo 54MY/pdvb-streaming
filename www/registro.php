@@ -76,9 +76,6 @@
             } else if (empty($celular) || empty($celular2)){
                 $mensaje='Campo celular requerido';
                 popUpWarning($mensaje);
-            } else if((strlen($celular) < 17) || (strlen($celular2) < 17)){
-                $mensaje='Numero de celular no permitido';
-                popUpWarning($mensaje);
             }  else if(mysqli_num_rows($existe_celular) > 0) {
                 $mensaje='El numero de celular ' . $celular . ' ya fue registrado';
                 popUpWarning($mensaje);
@@ -191,7 +188,7 @@
             $retval = mysqli_query($con,$sql);
             if($retval) {
                 $mensaje = 'Ahora puedes iniciar session en tu perfil';
-                popUpSuccess('Registrado con exito, ', $mensaje);
+                popUpSuccess('Registrado con exito', $mensaje);
             } else if(! $retval ) {
                 $mensaje = 'Nose pudo registrar ';
                 popUpWarning($mensaje);

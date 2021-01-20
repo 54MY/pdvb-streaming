@@ -220,7 +220,7 @@
                                 <label class="col-md-2 control-label" for="Correo electronico">Aplicación</label>
                                 <div class="col-md-8">
                                     <div class="input-group">
-                                        <a href="../vendor/apk/HORA_SILENCIOSA.apk" class="btn btn-default btn-sm">Descargar</a>
+                                        <a download="HORA_SILENCIOSA.apk" href="../vendor/apk/HORA_SILENCIOSA.apk" class="btn btn-default btn-sm">Descargar</a>
                                     </div>
                                 </div>
                             </div>
