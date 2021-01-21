@@ -18,7 +18,7 @@ simplyCountdown('#cuenta', {
 	// in case of inline set to false
 	enableUtc: false, //Use UTC as default
 	onEnd: function () {
-		window.location.replace("https://www.youtube.com/watch?v=FzdaIYojS3Q");
+		window.location.replace("https://youtu.be/qm2lKxjs2Fc");
 		return;
 	}, //Callback on countdown end, put your own function here
 	refresh: 1000, // default refresh every 1s
