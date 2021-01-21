@@ -4,7 +4,7 @@
     
     session_start();
     $user_check=$_SESSION['acampante'];
-    $ses_sql=mysqli_query($con, "SELECT a.Usuario, a.Correo, a.Nombres, a.Apellidos, a.Edad, a.Codigo_Pais, a.Celular, a.Pais, a.Ciudad, t.Taller, t.Link_Zoom, a.Color, a.Numero_Cuarto
+    $ses_sql=mysqli_query($con, "SELECT a.Usuario, a.Correo, a.Nombres, a.Apellidos, a.Edad, a.Codigo_Pais, a.Celular, a.Pais, a.Ciudad, t.id, t.Taller, t.Link_Zoom, a.Color, a.Numero_Cuarto
                                 FROM pdvb.Acampante a INNER JOIN pdvb.Talleres t ON Id_Taller = t.id WHERE a.Usuario = '$user_check'");
     $row = mysqli_fetch_assoc($ses_sql);
 
@@ -17,6 +17,7 @@
     $celular =$row["Celular"];
     $pais =$row["Pais"];
     $ciudad =$row["Ciudad"];
+    $id_Taller =$row["id"];
     $taller =$row["Taller"];
     $link =$row["Link_Zoom"];
     $cuarto =$row["Numero_Cuarto"];
@@ -163,8 +164,27 @@
                                 </div>
                                 </br>
                                 </br>
-                                <p>si la sala esta llena por favor ingrese a la transmicion en vivo en nuestra pagina de
-                                    facebook http://www.facebook.com</p>
+                                <p>Si la sala esta llena por favor ingrese a la transmicion en vivo en nuestra pagina de Facebook
+                                    <?php
+                                    switch ($id_Taller) {
+                                        case 1:
+                                            echo '<a href="https://www.facebook.com/MIL.Bolivia" target="_blank">Mil Bolivia</a>';
+                                            break;
+                                        case 2:
+                                            echo '<a href="https://www.facebook.com/Palabra-de-Vida-Bolivia-101117892019" target="_blank">Palabra de Vida Bolivia</a>';
+                                            break;
+                                        case 3:
+                                            echo '<a href="https://www.facebook.com/Comunidad-Joven-Bolivia-268327137018621" target="_blank">Comunidad Joven</a>';
+                                            break;
+                                        case 4:
+                                            echo '<a href="https://www.facebook.com/CEDPVBolivia-112649893754044" target="_blank">CED Bolivia</a>';
+                                            break;
+                                        default:
+                                            echo '******';
+                                            break;
+                                    }
+                                    ?>
+                                    </p>
                                 <?php } else { ?>
                                 </br>
                                 <p>espere a la asingacion de sala</p>

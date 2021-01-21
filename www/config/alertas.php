@@ -26,4 +26,18 @@ function popUpSuccess($title, $mensaje){
     </script>';
     exit;
 }
+
+function popUpEnd($title, $mensaje){
+    echo '<script>
+    swal({
+            title: "' . $title. '",
+            text: "' .$mensaje. '",
+            icon: "error",
+        })
+        .then((willDelete) => {
+                window.location.href = "index.php";
+        });
+    </script>';
+    exit;
+}
 ?>

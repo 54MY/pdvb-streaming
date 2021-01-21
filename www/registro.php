@@ -41,7 +41,7 @@
         include("config/alertas.php");
 
         if(isset($_POST['registrar'])){
-            $mensaje;
+            /* $mensaje;
             $correo = addslashes ($_POST['correo']);
             if (empty($correo)){
                 $mensaje='Campo correo requerido';
@@ -184,7 +184,7 @@
             $inscritos = $row["Inscritos"];
             $inscritos = $inscritos + 1;
             $update_inscritos = mysqli_query($con,"UPDATE pdvb.Talleres SET Inscritos=$inscritos WHERE id='$taller';");
-            
+
             $retval = mysqli_query($con,$sql);
             if($retval) {
                 $mensaje = 'Ahora puedes iniciar session en tu perfil';
@@ -193,7 +193,9 @@
                 $mensaje = 'Nose pudo registrar ';
                 popUpWarning($mensaje);
                die('Could not enter data: ' . mysqli_error());
-            }
+            } */
+
+            popUpEnd('Inscripciones cerradas','El proceso de inscripcion a terminado');
         }
     ?>
 

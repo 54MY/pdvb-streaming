@@ -107,7 +107,9 @@
                         <img src="images/logos/pv_blanco.png" class="pdvblogo" alt="">
                         <br />
                         <h1 class="mb-5" style="font-family: 'Helvetica LT Std';">Bolivia</h1>
-                        <a href="registro.php" class="btn btn-info btn-xl js-scroll-trigger">Registrate ahora!</a>
+                        <!-- <a href="registro.php" class="btn btn-info btn-xl js-scroll-trigger">Registrate ahora!</a> -->
+                        <a href="#" class="btn btn-outline btn-success btn-xl" role="button" aria-pressed="true" data-toggle="modal"
+                            data-target="#ingresar">Ingresar</a>
                     </div>
                 </div>
                 <div class="col-lg-7 my-auto">
@@ -229,7 +231,9 @@
         <div class="cta-content">
             <div class="container">
                 <h2>La Angostura<br>Bolivia.</h2>
-                <a href="registro.php" class="btn btn-info btn-xl js-scroll-trigger">Registrate ahora!</a>
+                <!-- <a href="registro.php" class="btn btn-info btn-xl js-scroll-trigger">Registrate ahora!</a> -->
+                <a href="#" class="btn btn-outline btn-success btn-xl" role="button" aria-pressed="true" data-toggle="modal"
+                    data-target="#ingresar">Ingresar</a>
             </div>
         </div>
         <div class="overlay"></div>

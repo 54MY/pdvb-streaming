@@ -28,6 +28,10 @@
         background-color: #f5f5f5;
     }
 
+    #buscar:focus {
+        outline: none !important;
+    }
+
     #buscar {
         background-image: url(../vendor/searchicon.png);
         background-position: 10px 7px;
