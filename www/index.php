@@ -113,7 +113,7 @@
                     </div>
                 </div>
                 <div class="col-lg-7 my-auto">
-                    <div class="screen">
+                    <!-- <div class="screen">
                         <img src="images/logos/logo_completo.png" class="img-fluid" alt="">
                         <br />
                         <br />
@@ -121,7 +121,11 @@
                         <div class="portada" id="portada">
                             <div id="cuenta"></div>
                         </div>
-                    </div>
+                    </div> -->
+                    <iframe style="width: 100%; height: 364px;" src="https://www.youtube.com/embed/9Hfti0iCp4c"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
                 </div>
             </div>
         </div>
@@ -232,8 +236,8 @@
             <div class="container">
                 <h2>La Angostura<br>Bolivia.</h2>
                 <!-- <a href="registro.php" class="btn btn-info btn-xl js-scroll-trigger">Registrate ahora!</a> -->
-                <a href="#" class="btn btn-outline btn-success btn-xl" role="button" aria-pressed="true" data-toggle="modal"
-                    data-target="#ingresar">Ingresar</a>
+                <a href="#" class="btn btn-outline btn-success btn-xl" role="button" aria-pressed="true"
+                    data-toggle="modal" data-target="#ingresar">Ingresar</a>
             </div>
         </div>
         <div class="overlay"></div>
@@ -292,7 +296,7 @@
 
     <!-- Custom scripts for this counter -->
     <script src="js/simplyCountdown.min.js"></script>
-    <script src="js/countdown.js"></script>
+    <!-- <script src="js/countdown.js"></script> -->
 
     <?php
     if (!empty($error)) {
