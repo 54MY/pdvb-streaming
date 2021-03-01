@@ -164,7 +164,8 @@
                                 </div>
                                 </br>
                                 </br>
-                                <p>Si la sala esta llena por favor ingrese a la transmicion en vivo en nuestra pagina de Facebook
+                                <p>Si la sala esta llena por favor ingrese a la transmicion en vivo en nuestra pagina de
+                                    Facebook
                                     <?php
                                     switch ($id_Taller) {
                                         case 1:
@@ -184,7 +185,7 @@
                                             break;
                                     }
                                     ?>
-                                    </p>
+                                </p>
                                 <?php } else { ?>
                                 </br>
                                 <p>espere a la asingacion de sala</p>

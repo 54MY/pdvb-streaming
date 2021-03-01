@@ -1,6 +1,11 @@
-<p align="center"><img width="200" src="www/images/logo.jpg" alt="Campamento Streaming logo"></p>
+<p align="center"><img width="200" src="www/images/logos/pv_blanco.png" alt="Palabrade vida Bolivia"></p>
 <h1 align="center">Palabra de vida Bolivia</h1>
 <p align="center">"Alcanzando a la juventud con el evangelio de Jesucristo"</p>
+
+### Palabrade vida Bolivia
+Palabra de Vida es una Organización Cristiana sin fines de lucro, que se encuentra en más de 65 países, desde hace más de 75 Años y en Bolivia desde hace 30 años, trabajando de una manera directa con la Juventud y la Niñez, llevando el Evangelio en toda Bolivia.
+
+Actualmente la Organización Palabra de Vida Bolivia tiene su Sede Central en la Localidad de Arbieto, más precisamente en La Angostura, Zona Caluyo, camino a Tarata, bajo la Personería Jurídica reconocida mediante Resolución Suprema No 215650. Manteniéndonos fieles a los Estatutos y Propósitos de la Organización, los cuales son conocidos y aprobados por el Ministerio de Relaciones Exteriores y Culto; nos abocamos a cumplirlos con todo el corazón, esmero y esfuerzo; transmitiendo valores morales y éticos a la Juventud y a la Niñez de Bolivia.
 
 ### Campamento Virtual Streaming
 Por primera vez en la historia PdVB entra al territorio virtual, realizando el campamento desde sus plataformas de [Facebook](https://www.facebook.com/Palabra-de-Vida-Bolivia-101117892019) y [Youtube](https://www.youtube.com/channel/UCkWg8_h4xmv21YqfIiBHR-A)

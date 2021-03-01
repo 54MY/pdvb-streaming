@@ -41,7 +41,7 @@
         include("config/alertas.php");
 
         if(isset($_POST['registrar'])){
-            /* $mensaje;
+            $mensaje;
             $correo = addslashes ($_POST['correo']);
             if (empty($correo)){
                 $mensaje='Campo correo requerido';
@@ -193,9 +193,9 @@
                 $mensaje = 'Nose pudo registrar ';
                 popUpWarning($mensaje);
                die('Could not enter data: ' . mysqli_error());
-            } */
+            }
 
-            popUpEnd('Inscripciones cerradas','El proceso de inscripcion a terminado');
+            //popUpEnd('Inscripciones cerradas','El proceso de inscripcion a terminado');
         }
     ?>
 
